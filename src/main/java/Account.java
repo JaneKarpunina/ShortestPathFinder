@@ -8,6 +8,8 @@ public class Account {
 
     boolean marked;
 
+    boolean markedSecondDirection;
+
     List<Account> children = new ArrayList<>();
 
     public Account(Integer id) {
@@ -28,6 +30,14 @@ public class Account {
 
     public void setMarked(boolean marked) {
         this.marked = marked;
+    }
+
+    public boolean isMarkedSecondDirection() {
+        return markedSecondDirection;
+    }
+
+    public void setMarkedSecondDirection(boolean markedSecondDirection) {
+        this.markedSecondDirection = markedSecondDirection;
     }
 
     public List<Account> getChildren() {

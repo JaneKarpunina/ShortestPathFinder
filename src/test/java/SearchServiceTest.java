@@ -10,6 +10,9 @@ class SearchServiceTest {
 
     Account root;
 
+    Account a8;
+    Account a9;
+
     @BeforeEach
     void createGraph() {
 
@@ -23,8 +26,8 @@ class SearchServiceTest {
         Account a6 = new Account(6);
         Account a7 = new Account(7);
 
-        Account a8 = new Account(8);
-        Account a9 = new Account(9);
+        a8 = new Account(8);
+        a9 = new Account(9);
 
         root.setChildren(Arrays.asList(a2, a3));
         a2.setChildren(Arrays.asList(a4, a5, root));
@@ -36,7 +39,7 @@ class SearchServiceTest {
         a7.setChildren(Arrays.asList(a4, a8));
 
         a8.setChildren(Arrays.asList(a3, a7, a9));
-        a9.setChildren(Arrays.asList(a8));
+        a9.setChildren(Collections.singletonList(a8));
 
     }
 
@@ -57,6 +60,17 @@ class SearchServiceTest {
     void testShortestPathFinder3() {
 
         checkPath(1, 1);
+    }
+
+    @Test
+    void testSearchBidirectional() {
+
+        SearchService searchService = new SearchService();
+
+        List<Account> result = searchService.searchBidirectional(root, a9);
+
+        assertEquals(4, result.size());
+
     }
 
     private void checkPath(int id, int expected) {
