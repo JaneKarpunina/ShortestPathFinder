@@ -7,6 +7,11 @@
   <name>Archetype - ShortestPathFinder</name>
   <url>http://maven.apache.org</url>
 
+  <properties>
+    <maven.compiler.target>21</maven.compiler.target>
+    <maven.compiler.source>21</maven.compiler.source>
+  </properties>
+
   <dependencies>
   <dependency>
     <groupId>org.junit.jupiter</groupId>
